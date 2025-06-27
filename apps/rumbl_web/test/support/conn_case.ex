@@ -28,11 +28,21 @@ defmodule RumblWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import RumblWeb.ConnCase
+      import Rumbl.TestHelpers
     end
   end
 
   setup tags do
     Rumbl.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
+  end
+  
+  def build_test_conn do 
+    Phoenix.ConnTest.build_conn()
+  end
+
+  def build_conn_login_as(%Rumbl.Accounts.User{} = user) do
+    build_test_conn()
+    |> Plug.Test.init_test_session(user_id: user.id)
   end
 end

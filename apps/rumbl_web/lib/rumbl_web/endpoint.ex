@@ -1,4 +1,5 @@
 defmodule RumblWeb.Endpoint do
+  alias Phoenix.Channel
   use Phoenix.Endpoint, otp_app: :rumbl_web
 
   # The session will be stored in the cookie and signed,
@@ -6,14 +7,19 @@ defmodule RumblWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_rumbl_web_key",
-    signing_salt: "plDGl+RB",
+    key: "_rumbl_key",
+    signing_salt: "rYlwfdPZ",
     same_site: "Lax"
   ]
 
   socket "/live", Phoenix.LiveView.Socket,
     websocket: [connect_info: [session: @session_options]],
     longpoll: [connect_info: [session: @session_options]]
+
+  # Video Channel
+  socket "/socket", RumblWeb.UserSocket,
+    websocket: true,
+    longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -31,7 +37,7 @@ defmodule RumblWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :rumbl_web
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :rumbl
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,

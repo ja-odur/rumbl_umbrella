@@ -1,0 +1,20 @@
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:url]} type="text" label="Url" />
+  <.input
+      field={{f, :category_id}}
+      name="category"
+      type="select"
+      label="Category"
+      prompt="Choose a category"
+      options={Enum.map(@categories, fn c -> {c.name, c.id} end)}
+      value={Enum.map(@categories, fn c -> c.id end)}
+    />
+  <.input field={f[:title]} type="text" label="Title" />
+  <.input field={f[:description]} type="text" label="Description" />
+  <:actions>
+    <.button>Save Video</.button>
+  </:actions>
+</.simple_form>

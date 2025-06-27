@@ -27,6 +27,7 @@ defmodule RumblWeb do
       import Plug.Conn
       import Phoenix.Controller
       import Phoenix.LiveView.Router
+      import RumblWeb.Auth, only: [authenticate_user: 2]
     end
   end
 
@@ -45,6 +46,8 @@ defmodule RumblWeb do
       use Gettext, backend: RumblWeb.Gettext
 
       import Plug.Conn
+
+      import RumblWeb.Auth, only: [authenticate_user: 2]
 
       unquote(verified_routes())
     end
@@ -108,7 +111,7 @@ defmodule RumblWeb do
   end
 
   @doc """
-  When used, dispatch to the appropriate controller/view/etc.
+  When used, dispatch to the appropriate controller/live_view/etc.
   """
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])

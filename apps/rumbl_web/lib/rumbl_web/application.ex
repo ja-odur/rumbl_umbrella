@@ -8,11 +8,8 @@ defmodule RumblWeb.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      RumblWeb.Telemetry,
-      # Start a worker by calling: RumblWeb.Worker.start_link(arg)
-      # {RumblWeb.Worker, arg},
-      # Start to serve requests, typically the last entry
-      RumblWeb.Endpoint
+      RumblWeb.Endpoint,
+      RumblWeb.Presence
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
