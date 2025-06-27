@@ -1,0 +1,29 @@
+session_name: rumbl_umbrella
+windows:
+  - window_name: rumbl-phx.server
+    options:
+      synchronize-panes: false
+    layout: even-horizontal
+    shell_command_before:
+      - cd ~/Desktop/elixir/rumbl_umbrella # run as a first command in all panes
+      - clear
+    panes:
+      - mix phx.server
+      
+  - window_name: rumbl-iex
+    options:
+      synchronize-panes: false
+    layout: even-horizontal
+    shell_command_before:
+      - cd ~/Desktop/elixir/rumbl_umbrella # run as a first command in all panes
+      - clear
+    panes:
+      - iex -S mix
+      
+  - window_name: rumbl-free
+    options:
+      synchronize-panes: false
+    layout: even-horizontal
+    shell_command_before:
+      - cd ~/Desktop/elixir/rumbl_umbrella # run as a first command in all panes
+      - clear
