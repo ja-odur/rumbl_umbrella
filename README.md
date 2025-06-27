@@ -1,21 +1,3 @@
-# What is this?
-
-This repository contains my working examples from the book [Programming Phoenix 1.4],
-for a newer version of Phoenix. In my case Phoenix version 1.7.
-
-There have been a lot of changes to the View layer of the framework between 1.4
-and 1.7. This repository contains working examples using the new View layer with
-[Phoenix.Component].
-
-My style is a little different from the authors of the book, but hopefully the
-examples are close enough to the book to help you get unstuck if you come across
-an error.
-
-Content starting on Chapter 11 is on a different branch named, `umbrella`. The
-refactoring from a vanilla Phoenix application to an umbrella-style project was
-big enough to be separated from the majority of the examples presented in the
-book.
-
 # Rumbl
 
 To start your Phoenix server:
