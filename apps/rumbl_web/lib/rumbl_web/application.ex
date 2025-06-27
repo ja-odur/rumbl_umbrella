@@ -8,6 +8,7 @@ defmodule RumblWeb.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Phoenix.PubSub, name: RumblWeb.PubSub},
       RumblWeb.Endpoint,
       RumblWeb.Presence
     ]
