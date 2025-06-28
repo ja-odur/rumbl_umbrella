@@ -8,7 +8,8 @@ defmodule InfoSys.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      {InfoSys.Counter, 5}
+      InfoSys.Cache,
+      {Task.Supervisor, InfoSys.TaskSupervisor}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
