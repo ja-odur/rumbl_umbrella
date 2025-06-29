@@ -9,7 +9,8 @@ defmodule InfoSys.Application do
   def start(_type, _args) do
     children = [
       InfoSys.Cache,
-      {Task.Supervisor, InfoSys.TaskSupervisor}
+      {Finch, name: InfoSys.Finch},
+      {Task.Supervisor, name: InfoSys.TaskSupervisor}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

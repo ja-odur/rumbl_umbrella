@@ -29,7 +29,7 @@ defmodule InfoSys.Cache do
     {:ok, schedule_clear(state)}
   end
 
-  def handle(:clear, state) do
+  def handle_info(:clear, state) do
     :ets.delete_all_objects(state.table)
     {:noreply, schedule_clear(state)}
   end
