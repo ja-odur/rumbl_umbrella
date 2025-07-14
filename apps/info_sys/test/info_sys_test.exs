@@ -5,7 +5,7 @@ defmodule InfoSysTest do
   defmodule TestBackend do
     def name(), do: "Wolfram"
 
-    def compute("result, _opts") do
+    def compute("result", _opts) do
       [%Result{backend: __MODULE__, text: "result"}]
     end
 
